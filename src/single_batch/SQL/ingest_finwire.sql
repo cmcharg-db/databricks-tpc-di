@@ -1,4 +1,8 @@
 -- Databricks notebook source
+USE CATALOG ${catalog};
+
+-- COMMAND ----------
+
 INSERT OVERWRITE ${catalog}.${wh_db}_${scale_factor}_stage.finwire
 SELECT
   if(

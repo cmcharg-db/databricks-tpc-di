@@ -36,13 +36,31 @@ ALTER DATABASE ${catalog}.${wh_db}_${scale_factor} ${pred_opt} PREDICTIVE OPTIMI
 
 -- COMMAND ----------
 
+-- CREATE OR REPLACE VIEW ${catalog}.${wh_db}_${scale_factor}.Audit (
+--   dataset STRING COMMENT 'Component the data is associated with', 
+--   batchid INT COMMENT 'BatchID the data is associated with', 
+--   date DATE COMMENT 'Date value corresponding to the Attribute', 
+--   attribute STRING COMMENT 'Attribute this row of data corresponds to', 
+--   value BIGINT COMMENT 'Integer value corresponding to the Attribute', 
+--   dvalue DECIMAL(15,5) COMMENT 'Decimal value corresponding to the Attribute'
+-- ) AS SELECT *
+-- FROM 
+--   read_files(
+--   "${tpcdi_directory}sf=${scale_factor}/*",
+--   format => "csv",
+--   inferSchema => False, 
+--   header => True,
+--   sep => ",",
+--   fileNamePattern => "*_audit.csv", 
+--   schema => "dataset STRING, batchid INT, date DATE, attribute STRING, value BIGINT, dvalue DECIMAL(15,5)"
+-- )
 CREATE OR REPLACE VIEW ${catalog}.${wh_db}_${scale_factor}.Audit (
-  dataset STRING COMMENT 'Component the data is associated with', 
-  batchid INT COMMENT 'BatchID the data is associated with', 
-  date DATE COMMENT 'Date value corresponding to the Attribute', 
-  attribute STRING COMMENT 'Attribute this row of data corresponds to', 
-  value BIGINT COMMENT 'Integer value corresponding to the Attribute', 
-  dvalue DECIMAL(15,5) COMMENT 'Decimal value corresponding to the Attribute'
+  dataset COMMENT 'Component the data is associated with', 
+  batchid COMMENT 'BatchID the data is associated with', 
+  date COMMENT 'Date value corresponding to the Attribute', 
+  attribute COMMENT 'Attribute this row of data corresponds to', 
+  value COMMENT 'Integer value corresponding to the Attribute', 
+  dvalue COMMENT 'Decimal value corresponding to the Attribute'
 ) AS SELECT *
 FROM 
   read_files(

@@ -67,7 +67,9 @@ wf_key            = list(workflows_dict)[workflow_vals.index(workflow_type)]
 sku               = wf_key.split('-')
 job_name          = f"{dbutils.widgets.get('job_name')}-SF{scale_factor}-{wf_key}"
 incremental       = True if dbutils.widgets.get("batched") == 'Incremental Batches' else False
-tpcdi_directory = f'/Volumes/{catalog}/tpcdi_raw_data/tpcdi_volume/'
+tpcdi_directory = f'/Volumes/{catalog}/tpc-di/hsbc-tpcdi-dataproc/'
+# tpcdi_directory = f'/Volumes/{catalog}/tpcdi_raw_data/tpcdi_volume/'
+
 
 if not lighthouse:
   dbutils.widgets.dropdown("serverless", default_serverless, ['YES', 'NO'], "Enable Serverless")
@@ -97,3 +99,7 @@ if sku[0] not in ['CLUSTER','DBSQL']:
 
 # DBTITLE 1,Generate and submit the Databricks Workflow
 # MAGIC %run ./tools/generate_workflow
+
+# COMMAND ----------
+
+
