@@ -1,0 +1,67 @@
+{
+  "datasets" : [ {
+    "name" : "39be33b5",
+    "displayName" : "batchdate",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.batchdate"
+  }, {
+    "name" : "74751e53",
+    "displayName" : "dimaccount",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.dimaccount"
+  }, {
+    "name" : "684f7b85",
+    "displayName" : "dimbroker",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.dimbroker"
+  }, {
+    "name" : "29b9df43",
+    "displayName" : "dimcompany",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.dimcompany"
+  }, {
+    "name" : "d5d771a9",
+    "displayName" : "dimcustomer",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.dimcustomer"
+  }, {
+    "name" : "c83792a7",
+    "displayName" : "dimdate",
+    "query" : "SELECT * FROM cm_catalog.conor_mcharg_tpcdi_cluster_10.dimdate"
+  } ],
+  "pages" : [ {
+    "name" : "d717ff43",
+    "displayName" : "Untitled page",
+    "layout" : [ {
+      "widget" : {
+        "name" : "3afddb05",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "39be33b5",
+            "fields" : [ {
+              "name" : "count(batchid)",
+              "expression" : "COUNT(`batchid`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 2,
+          "widgetType" : "counter",
+          "encodings" : {
+            "value" : {
+              "fieldName" : "count(batchid)",
+              "displayName" : "Count of batchid"
+            }
+          },
+          "frame" : {
+            "title" : "Batch ID Counter",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 0,
+        "y" : 1,
+        "width" : 3,
+        "height" : 6
+      }
+    } ]
+  } ]
+}
